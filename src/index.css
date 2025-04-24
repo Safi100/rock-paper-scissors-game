@@ -9,12 +9,6 @@
   --gradient-rock-from: hsl(349, 71%, 52%);
   --gradient-rock-to: hsl(349, 70%, 56%);
 
-  --gradient-lizard-from: hsl(261, 73%, 60%);
-  --gradient-lizard-to: hsl(261, 72%, 63%);
-
-  --gradient-spock-from: hsl(189, 59%, 53%);
-  --gradient-spock-to: hsl(189, 58%, 57%);
-
   /* Neutral Colors */
   --color-dark-text: hsl(229, 25%, 31%);
   --color-score-text: hsl(229, 64%, 46%);
@@ -39,6 +33,14 @@
   font-family: var(--font-family);
 }
 
+html {
+  font-size: 62.5%;
+}
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 75%;
+  }
+}
 body {
   background: linear-gradient(
     var(--gradient-background-from),
