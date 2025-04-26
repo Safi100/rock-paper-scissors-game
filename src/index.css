@@ -47,4 +47,5 @@ body {
     var(--gradient-background-to)
   );
   min-height: 100vh;
+  overflow-x: hidden;
 }
