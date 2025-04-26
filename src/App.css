@@ -137,23 +137,6 @@
   line-height: 1;
   transition: all 0.3s ease-in-out;
 }
-/* game section */
-.game {
-  position: relative;
-  margin-top: 10rem;
-}
-.game__body {
-  width: 30rem;
-  min-height: 26.25rem;
-  margin: auto;
-  position: relative;
-}
-@media screen and (min-width: 900px) {
-  .game__body {
-    width: 45rem;
-    min-height: 39rem;
-  }
-}
 /* rules button */
 .rules__btn {
   color: #c9c9c9;
@@ -179,7 +162,11 @@
     margin: -7rem 3rem 4rem auto;
   }
 }
-/* game */
+/* game section */
+.game {
+  position: relative;
+  margin-top: 10rem;
+}
 .game__body {
   width: 30rem;
   min-height: 26.25rem;
@@ -200,24 +187,333 @@
   width: 75%;
   transition: all 0.5s ease-in-out;
 }
-@media only screen and (min-width: 900px) {
-  .circle__container__paper,
-  .circle__container__scissors {
-    top: -8rem;
-  }
+.triangle__img__hidden {
+  opacity: 0;
 }
-.circle__container__paper,
-.circle__container__scissors,
-.circle__container__rock {
+.circle__container {
   transition: all 0.5s ease-in-out;
+  position: absolute;
+}
+.circle__container__rock {
+  left: 50%;
+  bottom: 6rem;
+  transform: translateX(-50%);
 }
 .circle__container__paper {
-  position: absolute;
   left: 0;
   top: -6.5rem;
 }
 .circle__container__scissors {
-  position: absolute;
   right: 0;
   top: -6.5rem;
+}
+.circle__outer {
+  transition: all 0.5s ease-in-out;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 3px rgb(0, 0, 0, 0.25);
+}
+.circle__outer__paper {
+  background: #2642bf;
+}
+.circle__outer__scissors {
+  background: #c76b18;
+}
+.circle__outer__rock {
+  background: #9d1736;
+}
+@media screen and (min-width: 900px) {
+  .circle__outer {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    width: 19rem;
+    height: 19rem;
+  }
+  .circle__outer:hover {
+    transform: scale(1.09) translateY(-5px);
+  }
+  .circle__container__paper,
+  .circle__container__scissors {
+    top: -8rem;
+  }
+  .circle__container__rock {
+    bottom: 8rem;
+  }
+}
+.circle__inner {
+  transition: all 0.5s ease-in-out;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 3px rgb(0, 0, 0, 0.25);
+  transform: translateY(-6px) scale(1.03);
+}
+.circle__inner__rock {
+  background: linear-gradient(
+    120deg,
+    var(--gradient-rock-from),
+    var(--gradient-rock-to)
+  );
+}
+.circle__inner__paper {
+  background: linear-gradient(
+    120deg,
+    var(--gradient-paper-from),
+    var(--gradient-paper-to)
+  );
+}
+.circle__inner__scissors {
+  background: linear-gradient(
+    120deg,
+    var(--gradient-scissors-from),
+    var(--gradient-scissors-to)
+  );
+}
+@media screen and (min-width: 900px) {
+  .circle__inner {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    width: 19rem;
+    height: 19rem;
+    transform: translateY(-9px) scale(1.03);
+  }
+}
+.circle__type__outer {
+  background-color: #bfbfbf;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+.circle__type__inner {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: #ddd;
+  transform: translateY(4px) scale(1.02);
+}
+.type__icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 900px) {
+  .circle__type__outer {
+    width: 14.5rem;
+    height: 14.5rem;
+  }
+  .circle__type__inner {
+    width: 14.5rem;
+    height: 14.5rem;
+    transform: translateY(7px) scale(1.02);
+  }
+  .type__icon {
+    transform: translate(-50%, -50%) scale(1.75);
+  }
+}
+.computer__choosing__loading {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  /* opacity: 0;
+  visibility: hidden; */
+  transition: all 0.5s ease-in-out;
+}
+@media screen and (min-width: 900px) {
+  .computer__choosing__loading {
+    width: 15rem;
+    height: 15rem;
+  }
+  .big__circle__choosed {
+    width: 25rem;
+    height: 25rem;
+  }
+  .small__circle__choosed {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+.choosed__item__player__container {
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  transform: translate(0);
+}
+@media screen and (min-width: 900px) {
+  .choosed__item__player__container__after__loading {
+    left: -15rem;
+  }
+}
+
+.choosed__item__computer__container {
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  transform: translate(0);
+}
+
+@media screen and (min-width: 900px) {
+  .choosed__item__computer__container__after__loading {
+    right: -15rem;
+  }
+}
+
+.choosed__item__player,
+.choosed__item__computer,
+.unchoosed__item {
+  cursor: none;
+}
+.unchoosed__item {
+  opacity: 0;
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  transform: translate(0);
+  cursor: unset;
+}
+@media screen and (min-width: 900px) {
+  .unchoosed__item {
+    top: 0;
+    right: 0;
+    left: auto;
+    transform: translate(0);
+    bottom: auto;
+  }
+}
+.picked {
+  color: #eee;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  bottom: -3rem;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+}
+@media screen and (min-width: 900px) {
+  .picked {
+    color: #eee;
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    bottom: auto;
+    top: -3rem;
+    transform: translateX(-50%);
+  }
+}
+.winner__circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+}
+.winner__first__circle {
+  width: 17rem;
+  height: 17rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  animation: first_circle_animation 0.25s ease-in-out;
+}
+.winner__second__circle {
+  width: 21rem;
+  height: 21rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  animation: second_circle_animation 0.5s ease-in-out;
+}
+.winner__third__circle {
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(255, 255, 255, 0.01);
+  animation: third_circle_animation 0.75s ease-in-out;
+}
+@media screen and (min-width: 900px) {
+  .winner__first__circle {
+    width: 25rem;
+    height: 25rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    animation: winner__first__circle 0.25s ease-in-out;
+  }
+  .winner__second__circle {
+    width: 35rem;
+    height: 35rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    animation: second_circle_animation 0.5s ease-in-out;
+  }
+  .winner__third__circle {
+    width: 45rem;
+    height: 45rem;
+    background-color: rgba(255, 255, 255, 0.01);
+    animation: third_circle_animation 0.75s ease-in-out;
+  }
+}
+@keyframes first_circle_animation {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  50% {
+    width: 10rem;
+    height: 10rem;
+  }
+  100% {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+@keyframes second_circle_animation {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 25rem;
+    height: 25rem;
+  }
+  100% {
+    width: 35rem;
+    height: 35rem;
+  }
+}
+@keyframes third_circle_animation {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  50% {
+    width: 30rem;
+    height: 30rem;
+  }
+  100% {
+    width: 45rem;
+    height: 45rem;
+  }
 }
