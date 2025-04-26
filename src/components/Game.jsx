@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Triangle from "../assets/bg-triangle.svg";
+import GameOver from "./GameOver";
 const Game = ({ setOpenRules, setScore }) => {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
@@ -52,6 +53,8 @@ const Game = ({ setOpenRules, setScore }) => {
   const handleReset = () => {
     setPlayerChoice(null);
     setComputerChoice(null);
+    setWinner(null);
+    setOptionWinner(null);
   };
 
   return (
@@ -371,11 +374,12 @@ const Game = ({ setOpenRules, setScore }) => {
           <div className="computer__choosing__loading"></div>
         )}
       </div>
+      {winner !== null && (
+        <GameOver winner={winner} handleReset={handleReset} />
+      )}
       <button className="rules__btn" onClick={() => setOpenRules(true)}>
         Rules
       </button>
-      {"winner: " + winner}
-      {"winner option: " + optionWinner}
     </section>
   );
 };

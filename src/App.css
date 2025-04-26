@@ -517,3 +517,42 @@
     height: 45rem;
   }
 }
+/* game over */
+.game__over__div h2 {
+  color: #eee;
+  text-transform: uppercase;
+  margin: auto;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+}
+.game__over__div button {
+  text-decoration: none;
+  color: var(--gradient-background-from);
+  width: 20rem;
+  padding: 1.25rem 3rem;
+  border-radius: 7px;
+  background-color: #eee;
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  font-weight: 700;
+  border: none;
+}
+@media screen and (min-width: 900px) {
+  .game__over__div {
+    position: absolute;
+    left: 50%;
+    top: 12.5rem;
+    transform: translate(-50%, -50%);
+  }
+  .game__over__div button:hover {
+    color: var(--gradient-rock-from);
+  }
+}
