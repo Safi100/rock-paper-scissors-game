@@ -32,7 +32,7 @@ const Game = ({ setOpenRules, setScore }) => {
     const computerIndex = choices.indexOf(computerChoice);
     const result = (playerIndex - computerIndex + 3) % 3;
     setTimeout(() => {
-      if ((result + 1) % 3 === 0) {
+      if (result === 1) {
         setWinner("player");
         setOptionWinner(playerChoice);
         setScore((prevScore) => prevScore + 1);
@@ -41,7 +41,7 @@ const Game = ({ setOpenRules, setScore }) => {
         setOptionWinner(computerChoice);
         setScore((prevScore) => Math.max(prevScore - 1, 0));
       }
-    }, 1000); // 1 second delay
+    }, 1000);
   };
 
   useEffect(() => {
